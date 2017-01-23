@@ -325,7 +325,7 @@ div.editable > a{position:absolute;top:0px;left:0px;z-index:5000;background-colo
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-83043955-1', 'auto');
+  ga('create', '', 'auto');
   ga('send', 'pageview');
 
 </script>
