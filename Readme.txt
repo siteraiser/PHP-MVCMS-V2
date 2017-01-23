@@ -17,5 +17,3 @@ Site Raiser fully customizable mvc-cms features:
 9. All system pages can be published and unpublished from the sitemap, the site search and general access.
 10. Tested with bootstrap and material design frontend frameworks.
 
-
-Jesse Donlin - Stamped Concrete, Mason and Handyman
