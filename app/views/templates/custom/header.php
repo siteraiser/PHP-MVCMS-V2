@@ -7,7 +7,7 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link href="https://plus.google.com/114615147953169990915" rel="publisher">
+  
 <script defer src="/assets/js/tether.min.js"></script>  <!-- Tether for Bootstrap --> 
 
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous"> -->
