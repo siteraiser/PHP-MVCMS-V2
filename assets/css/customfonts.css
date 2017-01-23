@@ -1,0 +1,11 @@
+@font-face {  
+    font-family: "montserrat";  
+    src: url( /assets/fonts/montserrat.eot ); /* IE */  
+    src: local("montserrat"), url("/assets/fonts/montserrat.ttf") format("truetype"); /*non-IE*/  
+}
+@font-face {  
+    font-family: "merriweather";  
+    src: url( /assets/fonts/merriweather.eot ); /* IE */  
+    src: local("merriweather"), url("/assets/fonts/merriweather.ttf") format("truetype"); /*non-IE*/ 
+	/* Add here and in header for f. f. observer */  
+}
