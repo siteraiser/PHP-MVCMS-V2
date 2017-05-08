@@ -1,5 +1,5 @@
 <?php 
-/*	Copyright © 2016 
+/*	Copyright Â© 2016 
 	
 	This file is part of PHP-MVCMS.
 
@@ -239,7 +239,8 @@ abstract class helpers{
 		header("Last-Modified: ".gmdate("D, d M Y H:i:s", $lastModified)." GMT");
 		header("Etag: $etagFile");
 		header('Cache-Control: public');
-
+		header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 7))); // week(60 * 60 * 24 * 7)
+		
 		//check if page has changed. If not, send 304 and exit--Could use && to reload based on date of cache
 		if (@strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])==$lastModified || $etagHeader == $etagFile)
 		{
