@@ -19,6 +19,9 @@ class User{
 	function getId(){
 		return $this->id;
 	}
+	function getPass(){
+		return $this->pass;
+	}
 	function getUsername(){
 		return $this->username;
 	}
