@@ -1,5 +1,5 @@
 <?php /*
-Copyright © 2016 
+Copyright Â© 2016 
 	
 	This file is part of MVCMS.
 
@@ -44,7 +44,15 @@ public function getUsers(){
 		
 	}	
 	
+public function generateHash($password) {
+	   	if (defined("CRYPT_BLOWFISH") && CRYPT_BLOWFISH) {
+		        $salt = '$2y$11$' . substr(md5(uniqid(rand(), true)), 0, 22);
+		        return crypt($password, $salt);
+   		}
+	}
 	public function addUser(){		
+		
+	
 		if($_POST['username']!='' && $_POST['email']!='' &&  $_POST['email']!=''){
 	  	$query='INSERT INTO users (
 		userType,
@@ -55,12 +63,13 @@ public function getUsers(){
 		)
 		VALUES
 		(?,?,?,?,?)';	
-			
+			//
+	
 		$array=array(
 			$_POST['userType'],
 			$_POST['username'],
 			$_POST['email'],
-			$_POST['pass'],
+			$this->generateHash(trim($_POST['pass'])),
 			$_POST['status']=isset($_POST['status']) ? 1 : 0
 			);				
 			
@@ -88,7 +97,7 @@ public function getUsers(){
 		':userType'=>($_POST["userType"]==''?NULL:$_POST["userType"]),	
 		':username'=>$_POST["username"],
 		':email'=>$_POST["email"],
-		':pass'=>$_POST["pass"],
+		':pass'=>$this->generateHash(trim($_POST["pass"])),
 		':status'=>isset($_POST['status']) ? 1 : 0,
 		':id'=>$id));			
 	}	
@@ -110,7 +119,7 @@ public function getUsers(){
 			':userType'=>($_POST["userType"][$value]==''?NULL:$_POST["userType"][$value]),	
 			':username'=>$_POST["username"][$value],
 			':email'=>$_POST["email"][$value],
-			':pass'=>$_POST["pass"][$value],
+			':pass'=>$this->generateHash(trim($_POST["pass"][$value])),
 			':status'=>isset($_POST['status'][$value]) ? 1 : 0,
 			':id'=>$value));			
 		}		
