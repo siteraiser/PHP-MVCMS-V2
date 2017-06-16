@@ -85,7 +85,7 @@ CREATE TABLE users (
     userType ENUM('public','author','admin'),
     username VARCHAR(40) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    pass CHAR(40) NOT NULL,
+    pass VARCHAR(100) NOT NULL,
 	urls VARCHAR(1000) NOT NULL,
 	image VARCHAR(100) NOT NULL,
     dateAdded TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
