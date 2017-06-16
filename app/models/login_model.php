@@ -14,9 +14,12 @@ class login_model extends requestHandler{
 			return false;   
 		} 
 	}
-	function getPass(){
+	function getPass($hashed){
 		
-		return trim($_POST['pass']);
+		return $this->verify(trim($_POST['pass']),$hashed);
+	}
+	function verify($password, $hashedPassword) {
+   		return crypt($password, $hashedPassword) == $hashedPassword;
 	}
 
 	public function check(){
@@ -31,9 +34,9 @@ class login_model extends requestHandler{
 		 if($_SERVER['REQUEST_METHOD'] == 'POST'){ //handle submission form
 			$formSubmitted=1;
 			
-			 $q = 'SELECT * FROM users WHERE email=:email AND pass=:pass';
+			 $q = 'SELECT * FROM users WHERE email=:email';
 			 $stmt = $this->pdo->prepare($q);
-			 $r = $stmt->execute(array(':email' => $this->getEmail(), ':pass' => $this->getPass() ));
+			 $r = $stmt->execute(array(':email' => $this->getEmail()));
 
 		 }
 
@@ -43,8 +46,10 @@ class login_model extends requestHandler{
 			$user = $stmt->fetch();
 		}
 
+
+
 		//Store user in session, redirect...
-		if($user && ($user->status() || $user->isAdmin())){
+		if($user && $this->getPass($user->getPass()) && ($user->status() || $user->isAdmin())){ //add back.. &&
 
 			//store session
 			$_SESSION[SESSION_PREFIX]['user'] = $user;
